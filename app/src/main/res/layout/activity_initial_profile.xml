@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/initial_profile_activity"
+    >
+
+    <RelativeLayout
+        android:id="@+id/layout_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#48a6e8"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:id="@+id/profile_back_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:rotation="180"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_clipart" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout_seg2"
+        android:layout_width="match_parent"
+        android:layout_height="265dp"
+        android:layout_below="@+id/layout_seg1">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/profile_dp_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/dp_outline_big"
+                app:srcCompat="@drawable/default_dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/name_ini"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-25dp"
+                android:layout_marginBottom="-30dp"
+                android:text="Name" />
+
+            <EditText
+                android:id="@+id/name_ini"
+                android:layout_width="match_parent"
+                android:backgroundTint="#ff0000"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@id/profile_dp_btn"
+                android:inputType="textCapSentences|textPersonName" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/layout_seg2"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bio_ini"
+            android:layout_width="match_parent"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginBottom="-30dp"
+            android:text="Bio" />
+
+        <EditText
+            android:id="@+id/bio_get"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#ff0000"
+            android:hint="Available"
+            android:layout_below="@id/bio_ini"
+            android:inputType="textCapSentences|text" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

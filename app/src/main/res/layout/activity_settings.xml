@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/settings_activity"
+    android:layout_height="match_parent"
+    tools:context=".messaging">
+    <RelativeLayout
+        android:id="@+id/layout_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:background="#48a6e8">
+
+        <ImageButton
+            android:id="@+id/setting_back_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="false"
+            android:background="@drawable/back_clipart"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout_seg2_settings"
+        android:layout_below="@id/layout_seg1"
+        >
+
+        <Button
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:gravity="center"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:height="40dp"
+            />
+        <Button
+            android:id="@+id/about_us"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/general"
+            android:text="About us"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:height="40dp"
+            android:layout_marginBottom="1dp"/>
+
+        <Button
+            android:id="@+id/general"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile"
+            android:text="General"
+            android:gravity="center"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:height="40dp"/>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_below="@id/about_us"
+            android:text="Logout"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:height="40dp"/>
+
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="Made with love"
+        />
+</RelativeLayout>

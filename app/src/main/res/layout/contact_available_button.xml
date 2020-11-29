@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_b"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:paddingVertical="0.5dp"
+    android:layout_marginRight="10dp"
+    android:background="@android:color/transparent"
+    android:layout_marginLeft="10dp">
+
+    <ImageView
+        android:id="@+id/frndshp_score"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6.5dp"
+        android:background="@drawable/msg_outline_dp"
+        />
+
+    <ImageView
+        android:id="@+id/dp_list"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/msg_outline_dp"
+        android:backgroundTint="#ffffff"
+        />
+
+    <TextView
+        android:id="@+id/contact_body"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:text="Placeholder message"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:textColor="#000000"
+        android:layout_marginLeft="55dp"
+        android:layout_alignLeft="@+id/dp_list"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/text_prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_alignLeft="@+id/dp_list"
+        android:layout_below="@id/contact_body"
+        android:layout_marginLeft="57dp"
+        android:textSize="15dp"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/msg_stat_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/seen_stat"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible"
+        />
+
+</RelativeLayout>

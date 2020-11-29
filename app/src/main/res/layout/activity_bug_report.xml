@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/bug_report_activity"
+    android:layout_height="match_parent"
+    tools:context=".Bug_report">
+
+    <RelativeLayout
+        android:id="@+id/layout_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:background="#48a6e8"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:id="@+id/bug_report_back_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_clipart" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@id/layout_seg2"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_seg1">
+
+        <TextView
+            android:id="@+id/bug_ques_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bug_image"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="-20dp"
+            android:text="Share the screenshot of the bug??" />
+
+        <EditText
+            android:id="@+id/issue_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="25dp"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/bug_ques_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/issue_text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginBottom="-30dp"
+            android:text="What's the issue you are facing?" />
+
+
+        <ImageButton
+            android:id="@+id/bug_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/issue_text"
+            android:background="@drawable/msg_outline_dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report"
+            android:background="@android:color/transparent"
+            android:id="@+id/bug_submit"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/bug_image"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

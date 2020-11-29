@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bio_metric_auth_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.whitezealots.squad_1.bio_auth.Bio_metric_auth">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/fingerprint" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Locked"
+        android:id="@+id/locked_text_view"
+        android:layout_alignBottom="@id/imageView"
+        android:layout_marginBottom="-30dp"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,22 @@
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <ImageButton
+                android:id="@+id/fab_sup"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/fab"
+                android:backgroundTint="#00d5ff" />
+            <ImageButton
+                android:id="@+id/fab"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom|end"
+                android:layout_centerInParent="true"
+                android:layout_margin="5dp"
+                android:backgroundTint="#FF00F4"
+                android:background="@drawable/fab"/>
+
+        </RelativeLayout>

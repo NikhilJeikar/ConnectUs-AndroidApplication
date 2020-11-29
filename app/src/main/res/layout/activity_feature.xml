@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/feature_layout_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:background="#48a6e8">
+
+        <ImageButton
+            android:id="@+id/feature_back_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="false"
+            android:background="@drawable/back_clipart"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@id/layout_seg2"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feature_layout_seg1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changes Made"
+            android:id="@+id/update_features_text_parent"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/update_features_text_child1"
+            android:layout_below="@id/update_features_text_parent"
+            android:text="@string/_1_profile_photo_is_now_visible"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child2"
+            android:layout_below="@id/update_features_text_child1"
+            android:text="2. Time stamp is shown in Messages"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child3"
+            android:layout_below="@id/update_features_text_child2"
+            android:text="3. Notification icon is changed "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child4"
+            android:layout_below="@id/update_features_text_child3"
+            android:text="4. App is optimized "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child5"
+            android:layout_below="@id/update_features_text_child4"
+            android:text="5. Message status is now shown "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child6"
+            android:layout_below="@id/update_features_text_child5"
+            android:text="6. Bond is enabled"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child7"
+            android:layout_below="@id/update_features_text_child6"
+            android:text="7. App crashes are reduced"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child8"
+            android:layout_below="@id/update_features_text_child7"
+            android:text="8. Back button is removed in main page"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child9"
+            android:layout_below="@id/update_features_text_child8"
+            android:text="9. Bio is now added "
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/update_features_text_child10"
+            android:layout_below="@id/update_features_text_child9"
+            android:text="10. You can see Others Bio in Add contacts "
+            />
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

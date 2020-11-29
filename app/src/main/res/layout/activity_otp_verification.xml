@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Otp_verification"
+    android:background="#4aa4ef">
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/log"
+        />
+    <RelativeLayout
+        android:id="@+id/layout_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_alignParentTop="true">
+
+
+        <ImageButton
+            android:id="@+id/login_back_btn"
+            android:layout_width="35dp"
+            android:backgroundTint="#241d4d"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_clipart" />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/Otp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:digits="0123456789"
+        android:drawablePadding="10dp"
+        android:layout_centerInParent="true"
+        android:textColor="#ffffff"
+        android:hint="Enter verification code"
+        android:textColorHint="#ffffff"
+        android:inputType="phone"
+        android:maxLength="10" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Otp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/msg_outline_dp"
+        android:text="Verify"
+        android:backgroundTint="#806bfa"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

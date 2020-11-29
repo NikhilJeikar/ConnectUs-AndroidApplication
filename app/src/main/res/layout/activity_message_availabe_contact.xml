@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/message_available_contact_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/msg_seg1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:background="#48a6e8">
+        <ImageButton
+            android:id="@+id/msg_ava_back_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="false"
+            android:background="@drawable/back_clipart"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="wrap_content"
+    android:id="@+id/message_available_contact_swipe"
+    android:layout_below="@id/msg_seg1"
+    android:layout_height="wrap_content">
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollingCache="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:smoothScrollbar="true">
+
+
+    </ListView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
