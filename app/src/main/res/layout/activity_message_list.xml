@@ -1,54 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/message_list_activity"
     tools:context=".message_list">
 
-    <RelativeLayout
-        android:id="@+id/layout_seg1"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentTop="true"
-        android:background="#48a6e8">
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="HAGGLE"
-    android:textSize="30dp"
-    android:fontFamily="@font/montserratalternatesregular"
-    android:layout_centerVertical="true"
-    android:layout_marginLeft="15dp"/>
-        <ImageButton
-            android:id="@+id/setting"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/settings" />
-
-    </RelativeLayout>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:id="@+id/msg_list_swipe"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout_seg1">
+        android:layout_height="match_parent">
         <RelativeLayout
             android:id="@+id/layout_seg2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/layout_seg3"
             android:layout_below="@+id/layout_seg1">
-
             <ListView
                 android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
             <ImageButton
                 android:id="@+id/add_people"
                 android:layout_width="50dp"
@@ -59,7 +30,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/add_people"
                 android:backgroundTint="#48a6e8"
-                android:foreground="@drawable/add" />
+                android:foreground="@drawable/add"/>
 
         </RelativeLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

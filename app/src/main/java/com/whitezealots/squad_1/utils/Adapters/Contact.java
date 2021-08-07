@@ -1,20 +1,25 @@
 package com.whitezealots.squad_1.utils.Adapters;
 
 public class Contact {
-    private String contact_name;
-    private String contact_num;
+    private final String Name;
+    private final String Number;
+    private final String  Image;
 
-    public Contact(String contact_name, String contact_num) {
-        this.contact_name = contact_name;
-        this.contact_num = contact_num;
+    public Contact(String Name, String Number, String Image) {
+        this.Name = Name;
+        this.Number = Number;
+        this.Image = Image;
     }
 
-    public String getContact_name() {
-        return contact_name;
+    public String getName() {
+        return Name;
     }
 
-    public String getContact_num() {
-        return contact_num;
+    public String getNumber() {
+        return Number;
     }
 
+    public String getImage() {
+        return Image;
+    }
 }

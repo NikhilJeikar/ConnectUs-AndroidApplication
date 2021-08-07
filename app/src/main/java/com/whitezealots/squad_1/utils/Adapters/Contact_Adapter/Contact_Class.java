@@ -2,23 +2,32 @@ package com.whitezealots.squad_1.utils.Adapters.Contact_Adapter;
 
 public class Contact_Class {
 
-    private String name,num,mynum;
+    private final String Name;
+    private final String Number;
+    private final String User;
+    private final String  Path;
 
-    public Contact_Class(String name, String num, String mynum) {
-        this.name = name;
-        this.num = num;
-        this.mynum = mynum;
-    }
-
-    public String getMynum() {
-        return mynum;
+    public Contact_Class(String Name, String Number, String User, String Path) {
+        this.Name = Name;
+        this.Number = Number;
+        this.User = User;
+        this.Path = Path;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
-    public String getNum() {
-        return num;
+    public String getNumber() {
+        return Number;
     }
+
+    public String getUser() {
+        return User;
+    }
+
+    public String getPath() {
+        return Path;
+    }
+
 }

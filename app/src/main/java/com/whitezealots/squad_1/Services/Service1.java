@@ -7,24 +7,17 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TaskStackBuilder;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.provider.ContactsContract;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,13 +29,10 @@ import com.google.gson.reflect.TypeToken;
 import com.whitezealots.squad_1.Aboutus;
 import com.whitezealots.squad_1.Initial_login;
 import com.whitezealots.squad_1.R;
-import com.whitezealots.squad_1.Settings;
-import com.whitezealots.squad_1.message_list;
 import com.whitezealots.squad_1.messaging;
 import com.whitezealots.squad_1.utils.Adapters.Contact;
 
 import java.lang.reflect.Type;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -240,18 +230,18 @@ public class Service1 extends Service
 
 
         for(int i =0;i<contactArrayList.size();i++){
-            if(contactArrayList.get(i).getContact_num().equals(num)){
-                msg_send_name = contactArrayList.get(i).getContact_name();
+            if(contactArrayList.get(i).getNumber().equals(num)){
+                msg_send_name = contactArrayList.get(i).getName();
                 break;
             }
         }
         if(msg_send_name == null || msg_send_name.isEmpty()){
             msg_send_name = num;
         }
-        Contact contact = new Contact(msg_send_name ,num);
+        Contact contact = new Contact(msg_send_name ,num,"");
         ArrayList<Contact> t = new ArrayList<Contact>();
         for (int z = 0;z<contact_current_ArrayList.size();z++){
-            if(!contact_current_ArrayList.get(z).getContact_num().equals(num)){
+            if(!contact_current_ArrayList.get(z).getNumber().equals(num)){
                 t.add(contact_current_ArrayList.get(z));
             }
         }

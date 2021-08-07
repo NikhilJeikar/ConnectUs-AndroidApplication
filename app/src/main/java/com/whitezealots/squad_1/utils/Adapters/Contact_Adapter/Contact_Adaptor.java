@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +18,8 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -99,8 +96,6 @@ public class Contact_Adaptor extends BaseAdapter {
         holder.Name = (TextView)convertView.findViewById(R.id.contact_body);
         holder.msg = (ImageView)convertView.findViewById(R.id.msg_stat_symbol);
         holder.Dp = (ImageView)convertView.findViewById(R.id.dp_list);
-        holder.Frndshp_score = (ImageView)convertView.findViewById(R.id.frndshp_score);
-
         convertView.setTag(holder);
 
         SharedPreferences pref = context.getSharedPreferences("DarkTheme", Context.MODE_PRIVATE);
@@ -114,7 +109,7 @@ public class Contact_Adaptor extends BaseAdapter {
         }
 
         mstorage = FirebaseStorage.getInstance().getReference();
-        mstorage.child("dp").child(contact_class.getNum() + ".bmp").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        mstorage.child("dp").child(contact_class.getNumber() + ".bmp").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context).asBitmap().load(uri).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.default_dp)
@@ -130,8 +125,8 @@ public class Contact_Adaptor extends BaseAdapter {
 
         holder.Name.setText(contact_class.getName());
         databaseReference = FirebaseDatabase.getInstance().getReference("data");
-        mynum =contact_class.getMynum();
-        anum = contact_class.getNum();
+        mynum =contact_class.getUser();
+        anum = contact_class.getNumber();
 
         databaseReference.child("chat-data").child(mynum).child(anum).addValueEventListener(new ValueEventListener() {
             @Override
@@ -145,7 +140,7 @@ public class Contact_Adaptor extends BaseAdapter {
             }
         });
 
-        databaseReference.child("Msg_Stat").child(contact_class.getMynum()).child(contact_class.getNum()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Msg_Stat").child(contact_class.getUser()).child(contact_class.getNumber()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
@@ -166,7 +161,7 @@ public class Contact_Adaptor extends BaseAdapter {
             }
         });
 
-        databaseReference.child("Msg_Stat").child(contact_class.getNum()).child(contact_class.getMynum()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Msg_Stat").child(contact_class.getNumber()).child(contact_class.getUser()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
@@ -186,7 +181,7 @@ public class Contact_Adaptor extends BaseAdapter {
             }
         });
 
-        databaseReference.child("Msg_count").child(contact_class.getMynum()).child(contact_class.getNum()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Msg_count").child(contact_class.getUser()).child(contact_class.getNumber()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{

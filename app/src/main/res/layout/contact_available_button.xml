@@ -7,13 +7,11 @@
     android:layout_marginRight="10dp"
     android:background="@android:color/transparent"
     android:layout_marginLeft="10dp">
-
     <ImageView
-        android:id="@+id/frndshp_score"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="6.5dp"
+        android:layout_marginLeft="8dp"
         android:background="@drawable/msg_outline_dp"
         />
 
@@ -23,8 +21,7 @@
         android:layout_height="43dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/msg_outline_dp"
-        android:backgroundTint="#ffffff"
+        android:background="@drawable/default_dp"
         />
 
     <TextView

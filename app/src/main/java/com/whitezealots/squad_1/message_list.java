@@ -4,38 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.whitezealots.squad_1.Services.Service1;
 import com.whitezealots.squad_1.Services.Service2;
 import com.whitezealots.squad_1.utils.Adapters.Contact;
 import com.whitezealots.squad_1.utils.Adapters.Contact_Adapter.Contact_Adaptor;
 import com.whitezealots.squad_1.utils.Adapters.Contact_Adapter.Contact_Class;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 
 public class message_list extends AppCompatActivity {
@@ -44,24 +35,13 @@ public class message_list extends AppCompatActivity {
     private ArrayList<Contact> contactArrayList ;
     private SwipeRefreshLayout swipeRefreshLayout;
     private Integer pos_ ;
-
+    private SQLiteDatabase Database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
         get_contact();
-
-
-        SharedPreferences pref = getSharedPreferences("DarkTheme", Context.MODE_PRIVATE);
-        if(!pref.getBoolean("mode",false)){
-            RelativeLayout layout = findViewById(R.id.message_list_activity);
-            layout.setBackgroundResource(R.drawable.bg_1);
-        }
-        else {
-            RelativeLayout layout = findViewById(R.id.message_list_activity);
-            layout.setBackgroundResource(R.drawable.bg_dark);
-        }
 
 
         SharedPreferences pref_1 = getSharedPreferences("Noti", Context.MODE_PRIVATE);
@@ -99,9 +79,7 @@ public class message_list extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
             }
         });
-
-
-        View Setting_view = findViewById(R.id.setting);
+        /*
         Setting_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +91,7 @@ public class message_list extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
         swipeRefreshLayout = findViewById(R.id.msg_list_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -129,7 +107,6 @@ public class message_list extends AppCompatActivity {
         Runnable r= new Runnable() {
             @Override
             public void run() {
-                main_run();
             }
         };
         r.run();
@@ -144,7 +121,7 @@ public class message_list extends AppCompatActivity {
         if(!contactArrayList.isEmpty()) {
 
             for (int i = 0; i<contactArrayList.size();i++){
-                Contact_Class contact = new Contact_Class(contactArrayList.get(i).getContact_name(),contactArrayList.get(i).getContact_num(),mynum);
+                Contact_Class contact = new Contact_Class(contactArrayList.get(i).getName(),contactArrayList.get(i).getNumber(),mynum, "");
                 contactAdaptor.add(contact);
             }
 
@@ -158,8 +135,8 @@ public class message_list extends AppCompatActivity {
                     new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            String num = contactArrayList.get(position).getContact_num();
-                            String name = contactArrayList.get(position).getContact_name();
+                            String num = contactArrayList.get(position).getNumber();
+                            String name = contactArrayList.get(position).getName();
                             Intent intent = new Intent(message_list.this,messaging.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             intent.putExtra("user_num",num);
@@ -192,7 +169,7 @@ public class message_list extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.delete){
             Integer i = pos_;
-            SharedPreferences contact_pref = getSharedPreferences(mynum + "_" +contactArrayList.get(pos_).getContact_num(),MODE_PRIVATE);
+            SharedPreferences contact_pref = getSharedPreferences(mynum + "_" +contactArrayList.get(pos_).getNumber(),MODE_PRIVATE);
             SharedPreferences.Editor editor = contact_pref.edit();
             editor.clear();
             editor.commit();
@@ -217,14 +194,8 @@ public class message_list extends AppCompatActivity {
 
 
     private void get_contact(){
-        SharedPreferences contact_pref = getSharedPreferences("Contact_list",MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = contact_pref.getString("task list" ,null);
-        Type type = new TypeToken<ArrayList<Contact>>(){}.getType();
-        contactArrayList = gson.fromJson(json,type);
-        if(contactArrayList == null){
-            contactArrayList = new ArrayList<>();
-        }
+        Database = openOrCreateDatabase("Connected",MODE_PRIVATE,null);
+
     }
 
 

@@ -8,7 +8,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
-import android.app.usage.ExternalStorageStats;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,7 +23,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -50,14 +48,10 @@ import com.whitezealots.squad_1.Complex_Message_struct.Message_pre_process_Stage
 import com.whitezealots.squad_1.utils.Adapters.Contact;
 import com.whitezealots.squad_1.utils.Adapters.Message_Adapter.message1;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -65,7 +59,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 public class messaging extends AppCompatActivity {
     private ImageView dp ;
@@ -153,10 +146,10 @@ public class messaging extends AppCompatActivity {
         edt.putString("Noti",an_num);
         edt.apply();
 
-        Contact contact = new Contact(an_name,an_num);
+        Contact contact = new Contact(an_name,an_num,null);
         ArrayList<Contact> t = new ArrayList<Contact>();
         for (int z = 0;z<contactArrayList.size();z++){
-            if(!contactArrayList.get(z).getContact_num().equals(an_num)){
+            if(!contactArrayList.get(z).getNumber().equals(an_num)){
                 t.add(contactArrayList.get(z));
             }
         }
@@ -173,30 +166,7 @@ public class messaging extends AppCompatActivity {
         dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String[] v1 = {""};
-                db.child("Last_seen").child(an_num).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot snapshot: dataSnapshot.getChildren())
-                            v1[0] = v1[0] +snapshot.getValue(String.class) + " ";
-                            try {
-                                Date date1 = simpleDateFormat.parse(getCurrentDate()+ " " + getCurrentTime());
-                                Date date2 = simpleDateFormat.parse(v1[0]);
-                                Difference(date2,date1);
-
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
+                ((TextView) findViewById(R.id.name)).setText(an_num);
             }
         });
 
